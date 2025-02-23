@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --primary: #6200ee;
+  --secondary: #03dac6;
+  --accent: #bb86fc;
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --error: #cf6679;
+  --text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex: auto;
+  background-color: var(--bg);
+  font-family: 'Roboto', sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Arrange the pages side by side */
+#root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style for each component "page" */
+section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Headings */
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.25rem;
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--primary);
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center; /* Adjusts vertical alignment */
+  justify-content: center; /* Centers items horizontally */
+  padding: 20px;
+}
+
+/* Vertical Divider between components */
+.divider {
+  width: 2px;
+  height: auto;
+  margin: 0 20px; /* Adjusts spacing between components */
+  background: linear-gradient(180deg, transparent, var(--secondary), transparent);
+}
+
+/* Form Elements inside pages */
+form {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+}
+
+form::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--secondary), transparent);
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  background: var(--bg);
+  border: 2px solid var(--surface);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 12px rgba(3, 218, 198, 0.5);
+}
+
+input[type="text"]:invalid {
+  border-color: var(--error);
+}
+
+/* Interactive Elements */
+button {
+  padding: 0.6rem 1.2rem;
+  background: var(--primary);
+  border: none;
+  border-radius: 6px;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Todo List Styles */
+ul {
+  width: 100%;
+  padding: 1rem;
+  background: var(--surface);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  background: var(--bg);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.02);
+  background: var(--surface);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #root {
+    flex-direction: column;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
