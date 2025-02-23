@@ -63,3 +63,5 @@ This project demonstrates both React component paradigms. Here's a comparative o
   Share lists and assign tasks to team members
 
 ---
+## Resources
+https://www.youtube.com/watch?v=LfG3DIJ7ImM
